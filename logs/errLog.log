@@ -1,0 +1,6 @@
+20240224	17:25:17	940d7249-8918-4a5a-8c9b-b79e6a3f0c82	Too Many Requests: Too many login attempts from this IP, please try again after 60 seconds	POST	/login	undefined
+20240224	17:25:17	dd1e9773-cd83-47e9-a077-0175f3e0e5bb	Too Many Requests: Too many login attempts from this IP, please try again after 60 seconds	POST	/login	undefined
+20240312	14:20:02	a73e2be2-5757-481f-b311-27ac4f12413a	Too Many Requests: Too many login attempts from this IP, please try again after a 60 second pause	POST	/login	http://localhost:5173
+20240312	14:20:17	d39e6ed9-289d-45a8-9518-bc6e34c0f02e	Too Many Requests: Too many login attempts from this IP, please try again after a 60 second pause	POST	/login	http://localhost:5173
+20240312	14:20:18	0a5d2a9a-50a8-46c2-ba3c-968e336c160c	Too Many Requests: Too many login attempts from this IP, please try again after a 60 second pause	POST	/login	http://localhost:5173
+20240312	14:20:38	c12b9b77-914b-41c8-b2f7-99d9f95e9225	Too Many Requests: Too many login attempts from this IP, please try again after a 60 second pause	POST	/login	http://localhost:5173
