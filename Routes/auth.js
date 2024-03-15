@@ -5,10 +5,7 @@ const express = require("express");
 const router = express.Router();
 const loginLimiter = require("../Middlewares/loginLimiter")
 
-router.post('/google/callback/company',authController.callBackFromGoogleCompany);
-router.post('/google/callback/teacher',authController.callBackFromGoogleTeacher);
-router.post('/google/callback/student',authController.callBackFromGoogleStudent);
-
+router.post('/google/callback',authController.callBackFromGoogle);
 
 router.post('/login',loginLimiter , authController.loginUser);
 router.get('/refresh', authController.refresh);

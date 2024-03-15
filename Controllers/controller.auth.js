@@ -870,13 +870,13 @@ const callBackFromGoogleCompany = async (req, res) => {
         console.error('Error in callBackFromGoogle:', error);
         res.status(500).json({ error: 'Internal server error' });
     }
-}; 
+};
 
 
-const callBackFromGoogleTeacher = async (req, res) => {
+const callBackFromGoogle = async (req, res) => {
     try {
         const randomTwoDigitNumber = Math.floor(10 + Math.random() * 90);
-        const { email, firstName, lastName} = req.body;
+        const { email, firstName, lastName, role} = req.body;
 
         const user = await User.findOne({ email });
         if (user) {
@@ -888,13 +888,15 @@ const callBackFromGoogleTeacher = async (req, res) => {
                 sameSite: 'none',
                 maxAge: 60 * 60 * 1000
             });
-            res.status(200).json({ accessToken ,role:user.role,username:user.username});
+            const { password: hashedPassword, ...currentUser } = user._doc;
+            res.status(200).json({ accessToken ,currentUser});
         } else {
             const hashedPassword = await bcrypt.hash(firstName+email, 10);
             const newUser = new User({
                 firstName,
                 lastName,
                 email,
+                role,
                 password: hashedPassword,
                 username: firstName+lastName+randomTwoDigitNumber,
             });
@@ -908,7 +910,8 @@ const callBackFromGoogleTeacher = async (req, res) => {
                 sameSite: 'none',
                 maxAge: 60 * 60 * 1000
             });
-            res.status(200).json({ accessToken ,role:"teacher",username:firstName+lastName});
+
+            res.status(200).json({ accessToken ,newUser});
         }
     } catch (error) {
         console.error('Error in callBackFromGoogle:', error);
@@ -976,6 +979,6 @@ module.exports = {
     verifySecurityQuestion,
     receiveMail,
     callBackFromGoogleCompany,
-    callBackFromGoogleTeacher,
+    callBackFromGoogle,
     callBackFromGoogleStudent,
 };
