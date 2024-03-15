@@ -4,14 +4,24 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 script {
-                    sh('npm install')
+                    sh 'npm install'
                 }
             }
         }
         stage('Build application') {
             steps {
                 script {
-                    sh('npm run dev')
+                    sh 'npm run dev'
+                }
+            }
+        }
+        stage('SonarQube Analysis') {
+            steps {
+                script {
+                    def scannerHome = tool 'scanner'
+                    withSonarQubeEnv {
+                        sh "${scannerHome}/bin/sonar-scanner"
+                    }
                 }
             }
         }
