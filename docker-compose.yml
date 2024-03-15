@@ -22,4 +22,9 @@ services:
     depends_on:
       - db
     volumes:
-      - mongo-data:
+      - type: volume
+        source: mongo-data
+        target: /your/target/path/in/container
+
+volumes:
+  mongo-data:
