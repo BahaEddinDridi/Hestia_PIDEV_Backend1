@@ -8,6 +8,13 @@ pipeline{
                             }
                     }
                 }
+            stage('Install dependencies') {
+                steps {
+                    script {
+                     sh 'npm install mocha'
+                            }
+                    }
+                }
             stage('Unit Test') {
                 steps{
                     script {
