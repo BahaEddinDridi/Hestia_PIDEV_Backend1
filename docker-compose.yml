@@ -20,7 +20,7 @@ services:
       - "5000:5000"
     depends_on:
       - db
-    volumes:
-      - mongo-data:
+    volumes:   # This line was corrected
+      - mongo-data:/path/to/mongo/data
 volumes:
   mongo-data:
