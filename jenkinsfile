@@ -8,13 +8,13 @@ pipeline {
                 }
             }
         }
-        stage('Build application') {
+        /*stage('Build application') {
             steps {
                 script {
                     sh 'npm run dev'
                 }
             }
-        }
+        }*/
         stage('SonarQube Analysis') {
             steps {
                 script {
