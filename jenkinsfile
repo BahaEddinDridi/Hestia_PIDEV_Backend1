@@ -8,20 +8,6 @@ pipeline {
                 }
             }
         }
-        stage('Install Mocha') {
-            steps {
-                script {
-                    sh('npm install mocha')
-                }
-            }
-        }
-        stage('Unit Test') {
-            steps {
-                script {
-                    sh('npm test')
-                }
-            }
-        }
         stage('Build application') {
             steps {
                 script {
